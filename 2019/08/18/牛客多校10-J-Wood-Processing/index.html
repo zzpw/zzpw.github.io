@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>牛客多校10 J Wood Processing | zzpw's blog</title><meta name="keywords" content="dp,斜率优化"><meta name="author" content="zzpw"><meta name="copyright" content="zzpw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="时间限制：C&#x2F;C++ 3秒，其他语言6秒空间限制：C&#x2F;C++ 524288K，其他语言1048576K64bit IO Format: %lld  题目描述In the wood industry, it is very common to make big wood boards by combining planks. To combine several planks into board">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客多校10 J Wood Processing">
+<meta property="og:url" content="http://zzpw.github.io/2019/08/18/%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A110-J-Wood-Processing/index.html">
+<meta property="og:site_name" content="zzpw&#39;s blog">
+<meta property="og:description" content="时间限制：C&#x2F;C++ 3秒，其他语言6秒空间限制：C&#x2F;C++ 524288K，其他语言1048576K64bit IO Format: %lld  题目描述In the wood industry, it is very common to make big wood boards by combining planks. To combine several planks into board">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2019-08-18T12:40:37.000Z">
+<meta property="article:modified_time" content="2019-08-19T12:26:48.619Z">
+<meta property="article:author" content="zzpw">
+<meta property="article:tag" content="dp">
+<meta property="article:tag" content="斜率优化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://zzpw.github.io/2019/08/18/%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A110-J-Wood-Processing/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-08-19 20:26:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/zzpw.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comment"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/selftalk/"><i class="fa-fw fas fa-cubes"></i><span> 心情</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zzpw's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comment"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/selftalk/"><i class="fa-fw fas fa-cubes"></i><span> 心情</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">牛客多校10 J Wood Processing</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-18T12:40:37.000Z" title="发表于 2019-08-18 20:40:37">2019-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-19T12:26:48.619Z" title="更新于 2019-08-19 20:26:48">2019-08-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ACM/">ACM</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>时间限制：C/C++ 3秒，其他语言6秒<br>空间限制：C/C++ 524288K，其他语言1048576K<br>64bit IO Format: %lld</p>
+</blockquote>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>In the wood industry, it is very common to make big wood boards by combining planks. To combine several planks into boards, the carpenter may cut some of the planks horizontally and discard one of the two parts, such that the heights of all planks are equal. Then, the planks are joined together, forming a big wood board. The height of the board is the common height of the planks, and the width of the board is the sum of the widths of the planks.</p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20190814/313347_1565716099777_430E17EA7886E3E280D5ABA1293D7362" alt="img"></p>
+<a id="more"></a>
+<p>However, cutting planks may result in huge wastes. The problem is, given n planks, determine the minimum total wasted area of planks to make k boards from these planks. You may freely reorder and combine these planks. Note that the mechanical properties of a plank are anisotropic, so you can’t rotate the planks. Also, all planks must be used; you cannot discard any whole plank.</p>
+<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h3><blockquote>
+<p>The first line of the input contains two integers $n$, $k$<br>($1 \leq n \leq 5000, 1 \leq k \leq 2000, k \leq n$), denoting the number of planks given and the number of boards to make.Each of the remaining n lines contains two integers w, h ($1 \leq w, h \leq 10^7$), denote the width and the height of a given plank.</p>
+</blockquote>
+<h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h3><blockquote>
+<p>Output the minimum wasted area as an integer.</p>
+</blockquote>
+<p>示例1</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 2</span><br><span class="line">3 3</span><br><span class="line">4 7</span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<p>示例2</p>
+<h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">1 1</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">1 5</span><br><span class="line">1 6</span><br></pre></td></tr></table></figure>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你 $n$ 块木板，其摆放方式不能动，即竖着的是高，横着的是宽，现在让你去切割一些木板，合并一些木板，使得最后剩下的木板总数为 $k$ ，问最小浪费的面积是多少。注意，切割木板只能横着切，即若把宽对着 $x$ 轴，高对着 $y$ 轴，只能平行于 $x$ 轴去切割木板，木板被切成两部分后，上半部分即丢弃了（也就是浪费的面积），下半部分可以与和它同高的木板合并成一块。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h4><ul>
+<li><p>首先是一个预处理，对这些木板按照高度去排序，高相同的则把宽较小的放前面，为什么呢？很容易想到，我们如果要把一块木板和别的木板合并，那么肯定是和高度小于等于它的合并，而且必然是优先合并高度与它相近的（这样浪费少），可能有人会问，为什么不能和高度比它高的木板合并呢？仔细想想，其实这是同一种情况，只不过“主角”不一样，对于与他合并的更高那块木板来说，不就是向下合并了吗？</p>
+</li>
+<li><p>排好序之后，其实就能够看出这个题目是个dp题了，考虑前 $j$ 块木板合并为 $i$ 块木板的情况的浪费面积为 $dp[i][j]$， 这样状态就已经定义好了，那么状态转移方程也容易想出来（<del>这个容易想出来是你有一定的dp基础，刷过至少几十道dp题的意思</del>），当我们求 $dp[i][j]$ 时，只需要考虑第 $j$ 块木板向前合并多少块，然后前面剩下的木板合并为 $i - 1$ 块，则转移方程为：</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+dp[i][j] = min_{k\in[1,j-1]}\{dp[i-1][k]+cost\{k + 1\rightarrow j\}\}</script><ul>
+<li>其中 $cost{k + 1\rightarrow j}$ 表示从第 $k + 1$ 块至第 $j$ 块合并为一块的浪费面积，这个可以基于一定的预处理得到，以下给出公式：</li>
+</ul>
+<script type="math/tex; mode=display">
+cost\{k\rightarrow j\} = suma[j] - suma[k] - h(k + 1)\times(sumw[j] - sumw[k])</script><ul>
+<li>其中 $suma[j]$ 表 $1$ ~ $j$ 木板的面积之和， $sumw[j]$ 表 $1$ ~ $j$ 的木板宽度之和，$h(k + 1)$ 表第 $k + 1$ 块木板的高。</li>
+</ul>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>这样我们得到了一个相当复杂的状态转移方程。</p>
+<p>好了，<strong>重点</strong>来了，如果我们直接就这么写，是 $O(kn^2)$ 的复杂度，emmmmmmmm,看到这个数据量，无疑是会TLE的，那么接下来就是本文的焦点，斜率优化。</p>
+<p>这题的重点就是如果能够在 $O(1)$ 的时间内把那个 $min$ 求出来，博主这种菜鸡只能想到线段树或者单调队列优化了，但是想了半天都感觉这两种数据结构在这题里是没有用武之地的，然后从网上学了一波斜率优化，斜率优化的使用条件比较苛刻，但很多时候很多dp似乎都是满足它的使用条件的（黑人问号❓）。</p>
+<p>我们假设现在有两个$k_1,k_2$值用于更新 $dp[i][j]$ ，假设 $k_2$ 优于 $k_1$，即</p>
+<script type="math/tex; mode=display">
+dp[i-1][k_2]+cost\{k_2 + 1\rightarrow j\} \leq dp[i-1][k_1]+cost\{k_1 + 1\rightarrow j\}</script><p>对这个式子进行整理（不用怀疑，因为斜率优化的重点在于推出斜率表达式，得到：</p>
+<script type="math/tex; mode=display">
+\frac{f(k_2) - f(k_1)}{h(k_2)-h(k_1)}\leq sumw[j] ......①</script><p>其中(假设当前在求 $dp[i][j]$ ,用 $dp[i-1][k]$ 更新 $dp[i][j]$ )：</p>
+<script type="math/tex; mode=display">
+f(k) = dp[i - 1][k] - suma[k] + h(k + 1)\times sumw[k]</script><p>显然，$f(k)$ 的值与 $j$ 的取值无关，不等式右边的 $sumw[j]$ 对于当前求的 $dp[i][j]$ 来说是个定值，而且 $sumw[j]$ 随着 $j$ 增大时递增的（后面会讲，这是一个重要条件），设①式为 $g[k_2, k_1]$ ，则只需 $g[k_2, k_1]\leq sumw[j]$ 则有 $k_2$ 优于 $k_1$。</p>
+<p>由于我们的内层循环（即 $j$ )是按照顺序（$1\rightarrow n$）进行dp的，不妨设 $k1 &lt; k2 &lt; j$ （对，你没看错，即使我们现在求的就是 $dp[i][j]$ 的值，但这里考虑了 $j$, 因为这里是 $j$ 应该如何入队，与 $dp[i][j]$ 的值无关），若 $g[j,k_2]\leq g[k_2,k1]$ ，则 $k_2$ 一定不是最优解，证：</p>
+<blockquote>
+<p>若 $g[j,k_2] \leq sumw[j]$ 则 $j$ 比 $k_2$ 优。</p>
+<p>若 $g[j,k_2]\geq sumw[j]$ 则 $k_2$ 比 $j$ 优，但 又 $g[k_2,k_1]\geq g[j,k_2]$，所以 $g[k_2,k_1] \geq sumw[j]$ ，所以 $k_1$ 优于 $k_2$ 。</p>
+</blockquote>
+<p>所以我们需要维护一个队列，队列内的元素 $k<em>1,k_2, …，$ 满足相邻元素间 $g[a_i, a</em>{i-1}] \geq g[a<em>{i-1},a</em>{i-2}]$  ，那么到求 $dp[i][j]$ 时，只需判断队首的两个元素 $a_1, a_2$ 的斜率 $g[a_2, a_1]$ 与 $sumw[j]$ 的关系。</p>
+<blockquote>
+<p>若 $g[a_2, a_1]\leq sumw[j]$ ，则 $a_2$ 必比 $a_1$ 优，所以可以把队首元素 $a_1$ 弹出，直到队内元素数量 = 1 或者 $g[a_2, a_1] \geq sumw[j]$ ，此时 $a1$ 比 $a_2$ 优，则 $a_1$ 就是最优解，为什么？我们前面说了，这个队列的元素间满足的关系！所以有 $a_1$ 优于 $a_2$ ，$a_2$ 优于 $a_3$ ，依次类推，所以 $a_1$ 即队首元素为最优！这就是斜率优化的精髓！</p>
+<p>更新完 $dp[i][j]$ 之后，相应的，$j$  也需要入队，为了保持队列元素间斜率的递增性质，依据上面已经证明过的弹出性质，设队列的大小为 $m$, 则当 $g[j,a<em>m] \leq g[a_m, a</em>{m-1}]$ 时，弹出 $a<em>m$ 即队尾元素，直到队列元素数量 = 2 或 $g[j,a_m] \geq g[a_m, a</em>{m-1}]$</p>
+</blockquote>
+<p>那又为什么断定队首被出队的元素以后就没用了呢？就因为 $sumw$ 是递增的！这就是斜率优化的使用条件。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>这题有个坑爹的地方，就是有些地方的乘法可能会爆long long， 所以要用__int128_t，博主由于这个原因WA了很多发……，找了很久才找出来。</p>
+<p><img src="/牛客多校10-J-Wood-Processing/1.png" alt="1"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> zpw                    \</span></span><br><span class="line">  ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">  <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);               \</span><br><span class="line">  <span class="built_in">cout</span>.tie(<span class="literal">NULL</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">__int128_t</span> llint;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">  ll w, h;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> node &amp;t) <span class="keyword">const</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (h == t.h) &#123;</span><br><span class="line">      <span class="keyword">return</span> w &lt; t.w;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> h &lt; t.h;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; p[maxn];</span><br><span class="line"></span><br><span class="line">ll dp[<span class="number">2010</span>][maxn];</span><br><span class="line">ll sumw[maxn];</span><br><span class="line">ll suma[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">getUp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> k1, <span class="keyword">int</span> k2)</span> </span>&#123;</span><br><span class="line">  ll t1 = dp[i][k1] - suma[k1] + p[k1 + <span class="number">1</span>].h * sumw[k1];</span><br><span class="line">  ll t2 = dp[i][k2] - suma[k2] + p[k2 + <span class="number">1</span>].h * sumw[k2];</span><br><span class="line">  <span class="keyword">return</span> t1 - t2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">getDown</span><span class="params">(<span class="keyword">int</span> k1, <span class="keyword">int</span> k2)</span> </span>&#123; <span class="keyword">return</span> p[k1 + <span class="number">1</span>].h - p[k2 + <span class="number">1</span>].h; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">getDp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> dp[i - <span class="number">1</span>][k] + suma[j] - suma[k] - p[k + <span class="number">1</span>].h * (sumw[j] - sumw[k]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  zpw;</span><br><span class="line">  <span class="keyword">int</span> n, k;</span><br><span class="line">  <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; p[i].w &gt;&gt; p[i].h;</span><br><span class="line">  &#125;</span><br><span class="line">  sort(p + <span class="number">1</span>, p + n + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    sumw[i] = sumw[i - <span class="number">1</span>] + p[i].w;</span><br><span class="line">    suma[i] = suma[i - <span class="number">1</span>] + p[i].w * p[i].h;</span><br><span class="line">    dp[<span class="number">1</span>][i] = suma[i] - sumw[i] * p[<span class="number">1</span>].h;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= k; i++) &#123;</span><br><span class="line">    <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push_back(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">      <span class="keyword">while</span> (q.size() &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((llint)getUp(i - <span class="number">1</span>, q[<span class="number">1</span>], q[<span class="number">0</span>]) &lt;=</span><br><span class="line">            (llint)sumw[j] * (llint)getDown(q[<span class="number">1</span>], q[<span class="number">0</span>])) &#123;</span><br><span class="line">          q.pop_front();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      dp[i][j] = getDp(i, j, q.front());</span><br><span class="line">      <span class="keyword">while</span> (q.size() &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> m = q.size();</span><br><span class="line">        llint t1 = (llint)getUp(i - <span class="number">1</span>, j, q[m - <span class="number">1</span>]) *</span><br><span class="line">                   (llint)getDown(q[m - <span class="number">1</span>], q[m - <span class="number">2</span>]);</span><br><span class="line">        llint t2 = (llint)getUp(i - <span class="number">1</span>, q[m - <span class="number">1</span>], q[m - <span class="number">2</span>]) *</span><br><span class="line">                   (llint)getDown(j, q[m - <span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">if</span> (t1 &lt;= t2) &#123;</span><br><span class="line">          q.pop_back();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      q.push_back(j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; dp[k][n] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">zzpw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://zzpw.github.io/2019/08/18/%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A110-J-Wood-Processing/">http://zzpw.github.io/2019/08/18/%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A110-J-Wood-Processing/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://zzpw.github.io" target="_blank">zzpw's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/dp/">dp</a><a class="post-meta__tags" href="/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/">斜率优化</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/08/22/Aizu-1634-Balance-Scale/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Aizu 1634 Balance Scale</div></div></a></div><div class="next-post pull-right"><a href="/2019/08/14/P2015-%E4%BA%8C%E5%8F%89%E8%8B%B9%E6%9E%9C%E6%A0%91/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">P2015 二叉苹果树</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2019/08/14/P2015-二叉苹果树/" title="P2015 二叉苹果树"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-08-14</div><div class="title">P2015 二叉苹果树</div></div></a></div><div><a href="/2019/08/13/POJ-2373-Dividing-the-Path/" title="POJ 2373 Dividing the Path"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-08-13</div><div class="title">POJ 2373 Dividing the Path</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/zzpw.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">zzpw</div><div class="author-info__description">每个人都在自己的生活轨迹里, 你没有落后, 你没有领先, 不必焦虑或优越!</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zzpw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zzpw" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zengpengwu@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://zhihu.com/people/ceng-peng-wu" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">输入描述:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="toc-number">3.</span> <span class="toc-text">输出描述:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-number">4.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-number">5.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5-1"><span class="toc-number">6.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA-1"><span class="toc-number">7.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-number">8.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">9.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">9.1.</span> <span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96"><span class="toc-number">9.2.</span> <span class="toc-text">优化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">10.</span> <span class="toc-text">代码</span></a></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="时隔一年多"/></a><div class="content"><a class="title" href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多">时隔一年多</a><time datetime="2020-12-22T13:26:18.000Z" title="发表于 2020-12-22 21:26:18">2020-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/03/23/%E5%85%AC%E7%BD%91%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91ecs%E4%B8%8A%E7%9A%84mongodb/" title="公网连接阿里云ecs上的mongodb">公网连接阿里云ecs上的mongodb</a><time datetime="2020-03-23T08:35:20.000Z" title="发表于 2020-03-23 16:35:20">2020-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/01/19/Chrome%E9%A1%B5%E9%9D%A2-%E5%96%94%E5%94%B7%E5%B4%A9%E6%BA%83%E4%BA%86-%E9%97%AE%E9%A2%98/" title="Chrome页面 喔唷崩溃了 问题">Chrome页面 喔唷崩溃了 问题</a><time datetime="2020-01-19T14:41:47.000Z" title="发表于 2020-01-19 22:41:47">2020-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2019/11/20/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E6%8B%9Frip%E5%8D%8F%E8%AE%AE/" title="java多线程模拟rip协议">java多线程模拟rip协议</a><time datetime="2019-11-20T02:51:59.000Z" title="发表于 2019-11-20 10:51:59">2019-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2019/11/11/%E7%BB%93%E6%9D%9F%E4%B8%8E%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/" title="结束与新的开始">结束与新的开始</a><time datetime="2019-11-11T08:48:22.000Z" title="发表于 2019-11-11 16:48:22">2019-11-11</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By zzpw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Welocome to zzpw's blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'dvBFzl6apeBQrxxFy0tLkaHI-gzGzoHsz',
+      appKey: 't8yipQInK9apLY7n2aEeQgBe',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div></body></html>

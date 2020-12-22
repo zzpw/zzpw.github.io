@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>zzpw's blog</title><meta name="author" content="zzpw"><meta name="copyright" content="zzpw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="每个人都在自己的生活轨迹里, 你没有落后, 你没有领先, 不必焦虑或优越!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zzpw&#39;s blog">
+<meta property="og:url" content="http://zzpw.github.io/index.html">
+<meta property="og:site_name" content="zzpw&#39;s blog">
+<meta property="og:description" content="每个人都在自己的生活轨迹里, 你没有落后, 你没有领先, 不必焦虑或优越!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zzpw.github.io/img/zzpw.png">
+<meta property="article:author" content="zzpw">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zzpw.github.io/img/zzpw.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://zzpw.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-12-22 22:13:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/zzpw.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comment"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/selftalk/"><i class="fa-fw fas fa-cubes"></i><span> 心情</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zzpw's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comment"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/selftalk/"><i class="fa-fw fas fa-cubes"></i><span> 心情</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">zzpw's blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/zzpw" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zengpengwu@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://zhihu.com/people/ceng-peng-wu" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="时隔一年多"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多">时隔一年多</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-22T13:26:18.000Z" title="发表于 2020-12-22 21:26:18">2020-12-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></span></div><div class="content">开始大理这个一年多没搞过的博客
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/03/23/%E5%85%AC%E7%BD%91%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91ecs%E4%B8%8A%E7%9A%84mongodb/" title="公网连接阿里云ecs上的mongodb">公网连接阿里云ecs上的mongodb</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-23T08:35:20.000Z" title="发表于 2020-03-23 16:35:20">2020-03-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E4%BA%91%E6%9C%8D%E5%8A%A1/">云服务</a></span></div><div class="content">这几天因为要把爬虫部署在云服务器上，所以需要远程连接阿里云ecs的mongodb，在网上找了一大堆资料没一点用，渐觉无望，最后终于找到一篇博文有效的了！！！激动地老泪纵横（因为之前已经花了一晚上配置了）。
+此为博客连接，建议进去看，原博主比我讲的清楚的多。
+本人配置：centos7(其他linux也没有太大区别)，mongodb4.2
+不会使用vim的同学稍微百度一下
+
+首先要修改数据库配置
+1vi /etc/mongod.conf
+
+
+   然后把 $bindIp$ 这一行注释掉, 并且在下面新加一行
+   1bindIpAll: true
+
+修改防火墙配置，放行 $mongodb$ 服务的端口
+
+若防火墙未打开，要先打开防火墙，以下为有关防火墙的一整套命令
+12345systemctl status firewalldsystemctl stop firewalldsystemctl start firewalld # 用这个就行systemctl disable firewalldsystemctl enable firewalld
+1iptables -A INPUT -p t ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/01/19/Chrome%E9%A1%B5%E9%9D%A2-%E5%96%94%E5%94%B7%E5%B4%A9%E6%BA%83%E4%BA%86-%E9%97%AE%E9%A2%98/" title="Chrome页面 喔唷崩溃了 问题">Chrome页面 喔唷崩溃了 问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-01-19T14:41:47.000Z" title="发表于 2020-01-19 22:41:47">2020-01-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></span></div><div class="content">总算能够闲下来好好写一篇博客了，前段时间忙于课程设计与期末考试。
+最近碰到一个很坑爹的问题，就是Chrome在你没有更新的时候总是会不厌其烦的提醒你去更新，搞得人很烦，于是我就点了安装更新，以免它再提示，结果……更新完之后打开任何网页都是提示“喔唷崩溃了”，给我整懵了，据说这是Google更新出现的问题。
+网上找到了一些解决方案，有一类是修改用快捷方式打开浏览器的方式，打开快捷方式的属性后，在目标后面添加—no-sandbox后缀，但这种方式打开Chrome会有安全提示，不美观而且麻烦，另一种是在后面加 —disable-features=RendererCodeIntegrity后缀，没有了安全提示，结果我一度以为解决了……，但你会发现，用快捷方式打开浏览器没有问题，但用别的方式，例如点开QQ消息里的链接，还是会显示“喔唷崩溃了”……
+最后找到了一个完美的解决方案，点此进入，若没有博客里说的那个路径，需要自己手动创建（本人就是）。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/11/20/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E6%8B%9Frip%E5%8D%8F%E8%AE%AE/" title="java多线程模拟rip协议">java多线程模拟rip协议</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-11-20T02:51:59.000Z" title="发表于 2019-11-20 10:51:59">2019-11-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java/">java</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/java/">java</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="content">最近在做计算机网络的一个小实验，多线程模拟rip协议，实现距离向量算法，感觉挺有意思的，需要一定的思考之后才能写出结构比较好的代码。
+路由器与网络相连，而不是与路由器直接相连。路由器先给所有直接相连的网络发消息（路由表报文），然后，网络再给所有与它直接相连的路由器转发。
+下面贴代码了，可以直接运行
+Pair.java
+1234567891011121314151617181920212223242526/** *  * @author 82177 * * @param &lt;T1&gt; * @param &lt;T2&gt; */public class Pair&lt;T1, T2&gt; &#123;	private T1 first;	private T2 second;		public Pair(T1 first, T2 second) &#123;		this.first = first;		this.second = second;	&#125;		public T1 getFirst() &#123;		return first;	&#125;		public T2  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/11/11/%E7%BB%93%E6%9D%9F%E4%B8%8E%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/" title="结束与新的开始">结束与新的开始</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-11-11T08:48:22.000Z" title="发表于 2019-11-11 16:48:22">2019-11-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></span></div><div class="content">怎么说呢，下半年的两场区域赛总算是结束了，一场南京，一场南昌。
+两年了，到这个时候算是暂时落幕了，以前有时候会觉得训练赛有点烦，毕竟平时事情还是比较多的，现在总算是清闲下来了，感到高兴吗？会感觉稍微松了一口气。高兴，会吗？远远谈不上，感到迷茫和空洞倒是真的。
+大一上刚刚接触的ACM时候，感到非常地开心，喜欢这种AC题目的感觉，也因此开始准备下学期的新生赛。到了新生赛的时候，由于在比赛中途出现的种种失误（也不能叫失误吧，就是比赛没打好），搞得心态有点崩，一度想要放弃。。。大一下去外面的一系列比赛打得非常糟糕，那时还挺难过的。
+大二上由于整体状态下滑，心理很不稳定，经常怀疑自己是不是选错了专业，为什么要来读软件工程，为什么要打ACM，甚至想过转专业到数院去（我高中的时候非常喜欢数学），虽然此时已经不能转专业了。自己也忘了大二上是怎么度过的了，但没怎么写题倒是真的。
+大二下思想回到正轨，好好训练，好好读书，好好做该做的事情，不虚度光阴，拿到了省赛银和邀请赛铜奖。
+这个学期备战两场区域赛，已经过去的两个月一直在刷题。
+一站铁牌，一站银牌，还算是不错的收尾。
+这就是我的ACM简历，看起来乏善可陈 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/10/21/%E5%BE%90%E5%B7%9E%E7%BD%91%E7%BB%9C%E8%B5%9B-H/" title="徐州网络赛 H">徐州网络赛 H</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-21T03:30:42.000Z" title="发表于 2019-10-21 11:30:42">2019-10-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/ACM/">ACM</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/min25%E7%AD%9B/">min25筛</a></span></div><div class="content">functionFor $n=p{1}^{k_1} p{2}^{k2} \cdots p{m}^{km}$ , define $f(n)=k_1 +k_2 + \cdots + k_m$, please calculate$ \sum{i=1}^n f(i!) \% 998244353$
+InputThere is a single integer $n$($1 \le n \le 10^{10}$).
+OutputPrint a single line containing an integer, denoting the ans.
+样例输入110
+样例输出166
+题意见题面描述
+解决方案。。。。。。。。。。。。。。。。。。。。
+min25筛好难啊，比杜教筛难了一个等级…….。
+杜教筛其实就是基于狄利克雷卷积和常用的积性函数进行求和变换的一个套路，代码敲起来也比较简单，感觉和筛搭不上什么关系……。
+min25筛才是名副其实的筛法的思想，然后形式上是一个 $dp$ 的转移方程，理解起来有挺大的难度，代码也不是很好写。
+推荐两个教程：
+min25筛学习总结
+Min_25筛学习笔记
+min ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/10/05/%E8%A5%BF%E5%AE%89%E9%82%80%E8%AF%B7%E8%B5%9B-B-Product/" title="西安邀请赛 B Product">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="西安邀请赛 B Product"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/10/05/%E8%A5%BF%E5%AE%89%E9%82%80%E8%AF%B7%E8%B5%9B-B-Product/" title="西安邀请赛 B Product">西安邀请赛 B Product</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-05T11:55:55.000Z" title="发表于 2019-10-05 19:55:55">2019-10-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/ACM/">ACM</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%9D%9C%E6%95%99%E7%AD%9B/">杜教筛</a></span></div><div class="content">ProductYou are given positive integers $n$ ( $n \le 10^9$), $m$ ( $m \le 2 \times 10^9$), $p$ ($p \le 2 \times 10^9$) and you need to calculate the following product modulo $p$.
+
+\displaystyle \displaystyle\prod_{i = 1}^n \displaystyle\prod_{j = 1}^n \displaystyle\prod_{k = 1}^n m^{\gcd(i,j)[k|\gcd(i,j)]}InputEach test file contains a single test case. In each test file:
+There are three positive integers $n$, $m$, $p$ which are separated by spaces. It is guaranteed that $p$ is a prime number.
+Ou ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/09/30/bzoj-2820/" title="bzoj 2820">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="bzoj 2820"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/09/30/bzoj-2820/" title="bzoj 2820">bzoj 2820</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-30T06:30:43.000Z" title="发表于 2019-09-30 14:30:43">2019-09-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/ACM/">ACM</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/">莫比乌斯反演</a></span></div><div class="content">YY的GCD友情链接：
+ HYSBZ - 2820 
+洛谷 P2257
+神犇YY虐完数论后给傻×kAc出了一题
+给定$N$, $M$,求 $1\le x\le N$, $1\le y\le M$ 且 $\gcd(x, y)$ 为质数的 $(x, y)$ 有多少对
+kAc这种傻×必然不会了，于是向你来请教……
+多组输入
+
+Input第一行一个整数 $T$ 表述数据组数
+接下来 $T$ 行，每行两个正整数，表示 $N$, $M$
+OutputT行，每行一个整数表示第i组数据的结果
+Sample Input1210 10100 100
+Sample Output1302791
+Hint$T = 10000$
+$N, M\le 10000000$
+题意给定 $N, M$，求 $\sum{i=1}^{N}\sum{j=1}^{M}isprime(\gcd(i, j))$ 的值，即 $[1, M]$ 和 $[1, N]$ 两个区间中各取一个数，形成一个数对，且 $\gcd(i,j)$ 为质数，问这样的数对有多少个。
+解决方案考虑枚举质数 $d$ ，则原式为：
+
+\sum_{i=1}^{N}\sum ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/09/18/%E5%8F%B9%E6%81%AF/" title="叹息">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="叹息"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/09/18/%E5%8F%B9%E6%81%AF/" title="叹息">叹息</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-18T12:58:12.000Z" title="发表于 2019-09-18 20:58:12">2019-09-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></span></div><div class="content">从大一下学期开始打ACM，到现在大三上，将近两年了，期间队友换了无数个，CZY，XXW，LJX，HSC，LSP，WGL，LZX。陪我打的最久的一个队友是WGL。最开始和两个高一级的学长一起打比赛，无论是省赛还是校赛都打成了辣鸡，打完之后这个队伍就完蛋了，XXW要出国了，CZY也不怎么想打了。然后老师给我找了个新队友WGL，据WGL自己说是选了老师的ACM通选课，比较感兴趣，老师就让他跟着一起训练。WGL大一下开始和我一起打比赛，当时我们两个都是菜鸡，市赛未报名，打星队，当时缺队友，我们俩个人打的还不错，当时挺开心的（现在回想也是啊）。没过多久，LJX过来和我们组队，练了不久，HSC也过来了（变成了 4 个人的队伍？），没打多久HSC不打了，稍微稳定下来，我，WGL，LJX三人组队。
+大一暑假，三个菜鸡暑期集训，还是那样，很菜，但是心里没有b数，写了几个水题就沾沾自喜。
+大二上，当时状态非常差，无论是比赛还是学业，都搞得一塌糊涂，浑浑噩噩的就过去了，题目没怎么刷，绩点也降了几个名次，具体降了多少没问，怕受不了，但估计降到专业7、8左右。寒假训练之后，LJX出国了，队伍又剩下我们俩，然后学 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/09/08/UVA-11426/" title="UVA 11426">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UVA 11426"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/09/08/UVA-11426/" title="UVA 11426">UVA 11426</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-08T14:01:49.000Z" title="发表于 2019-09-08 22:01:49">2019-09-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/ACM/">ACM</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a></span></div><div class="content">GCD - Extreme (II) UVA - 11426 
+Given the value of $N$, you will have to find the value of $G$. The definition of $G$ is given below:
+
+G = \sum_{i=1}^{i</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/zzpw.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">zzpw</div><div class="author-info__description">每个人都在自己的生活轨迹里, 你没有落后, 你没有领先, 不必焦虑或优越!</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zzpw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zzpw" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zengpengwu@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://zhihu.com/people/ceng-peng-wu" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="时隔一年多"/></a><div class="content"><a class="title" href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多">时隔一年多</a><time datetime="2020-12-22T13:26:18.000Z" title="发表于 2020-12-22 21:26:18">2020-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/03/23/%E5%85%AC%E7%BD%91%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91ecs%E4%B8%8A%E7%9A%84mongodb/" title="公网连接阿里云ecs上的mongodb">公网连接阿里云ecs上的mongodb</a><time datetime="2020-03-23T08:35:20.000Z" title="发表于 2020-03-23 16:35:20">2020-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/01/19/Chrome%E9%A1%B5%E9%9D%A2-%E5%96%94%E5%94%B7%E5%B4%A9%E6%BA%83%E4%BA%86-%E9%97%AE%E9%A2%98/" title="Chrome页面 喔唷崩溃了 问题">Chrome页面 喔唷崩溃了 问题</a><time datetime="2020-01-19T14:41:47.000Z" title="发表于 2020-01-19 22:41:47">2020-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2019/11/20/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E6%8B%9Frip%E5%8D%8F%E8%AE%AE/" title="java多线程模拟rip协议">java多线程模拟rip协议</a><time datetime="2019-11-20T02:51:59.000Z" title="发表于 2019-11-20 10:51:59">2019-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2019/11/11/%E7%BB%93%E6%9D%9F%E4%B8%8E%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/" title="结束与新的开始">结束与新的开始</a><time datetime="2019-11-11T08:48:22.000Z" title="发表于 2019-11-11 16:48:22">2019-11-11</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ACM/"><span class="card-category-list-name">ACM</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%91%E6%9C%8D%E5%8A%A1/"><span class="card-category-list-name">云服务</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发工具</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/"><span class="card-category-list-name">日常</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9D%82%E8%B0%88/"><span class="card-category-list-name">杂谈</span><span class="card-category-list-count">2</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/dp/" style="font-size: 1.37em; color: #99a4b2">dp</a> <a href="/tags/java/" style="font-size: 1.1em; color: #999">java</a> <a href="/tags/min25%E7%AD%9B/" style="font-size: 1.1em; color: #999">min25筛</a> <a href="/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/" style="font-size: 1.23em; color: #999ea6">主席树</a> <a href="/tags/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">可持久化数据结构</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 1.1em; color: #999">哈希</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.1em; color: #999">图论</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.1em; color: #999">多线程</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">开发工具</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">开发环境搭建</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 1.37em; color: #99a4b2">思维</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.23em; color: #999ea6">数据结构</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 1.5em; color: #99a9bf">数论</a> <a href="/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">斜率优化</a> <a href="/tags/%E6%9D%9C%E6%95%99%E7%AD%9B/" style="font-size: 1.1em; color: #999">杜教筛</a> <a href="/tags/%E6%9E%9A%E4%B8%BE/" style="font-size: 1.1em; color: #999">枚举</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 1.1em; color: #999">线段树</a> <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" style="font-size: 1.1em; color: #999">莫比乌斯反演</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">计算机网络</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 1.37em; color: #99a4b2">贪心</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">三月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/01/"><span class="card-archive-list-date">一月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/11/"><span class="card-archive-list-date">十一月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">10</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">23</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-08-10T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">24.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-12-22T14:13:57.267Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By zzpw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Welocome to zzpw's blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div></body></html>

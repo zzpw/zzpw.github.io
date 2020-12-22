@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>徐州网络赛 H | zzpw's blog</title><meta name="keywords" content="数论,min25筛"><meta name="author" content="zzpw"><meta name="copyright" content="zzpw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="functionFor $n&#x3D;p{1}^{k_1} p{2}^{k2} \cdots p{m}^{km}$ , define $f(n)&#x3D;k_1 +k_2 + \cdots + k_m$, please calculate$ \sum{i&#x3D;1}^n f(i!) \% 998244353$ InputThere is a single integer $n$($1 \le n \le 10^{10}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="徐州网络赛 H">
+<meta property="og:url" content="http://zzpw.github.io/2019/10/21/%E5%BE%90%E5%B7%9E%E7%BD%91%E7%BB%9C%E8%B5%9B-H/index.html">
+<meta property="og:site_name" content="zzpw&#39;s blog">
+<meta property="og:description" content="functionFor $n&#x3D;p{1}^{k_1} p{2}^{k2} \cdots p{m}^{km}$ , define $f(n)&#x3D;k_1 +k_2 + \cdots + k_m$, please calculate$ \sum{i&#x3D;1}^n f(i!) \% 998244353$ InputThere is a single integer $n$($1 \le n \le 10^{10}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zzpw.github.io/img/zzpw.png">
+<meta property="article:published_time" content="2019-10-21T03:30:42.000Z">
+<meta property="article:modified_time" content="2019-10-21T06:29:00.496Z">
+<meta property="article:author" content="zzpw">
+<meta property="article:tag" content="数论">
+<meta property="article:tag" content="min25筛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zzpw.github.io/img/zzpw.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://zzpw.github.io/2019/10/21/%E5%BE%90%E5%B7%9E%E7%BD%91%E7%BB%9C%E8%B5%9B-H/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-10-21 14:29:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/zzpw.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comment"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/selftalk/"><i class="fa-fw fas fa-cubes"></i><span> 心情</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zzpw's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-comment"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/selftalk/"><i class="fa-fw fas fa-cubes"></i><span> 心情</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">徐州网络赛 H</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-21T03:30:42.000Z" title="发表于 2019-10-21 11:30:42">2019-10-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-10-21T06:29:00.496Z" title="更新于 2019-10-21 14:29:00">2019-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ACM/">ACM</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">262</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><p>For $n=p<em>{1}^{k_1} p</em>{2}^{k<em>2} \cdots p</em>{m}^{k<em>m}$ , define $f(n)=k_1 +k_2 + \cdots + k_m$, please calculate$ \sum</em>{i=1}^n f(i!) \% 998244353$</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>There is a single integer $n$($1 \le n \le 10^{10}$).</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print a single line containing an integer, denoting the ans.</p>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">66</span><br></pre></td></tr></table></figure>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>见题面描述</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>。。。。。。。。。。。。。。。。。。。。</p>
+<p>min25筛好难啊，比杜教筛难了一个等级…….。</p>
+<p>杜教筛其实就是基于狄利克雷卷积和常用的积性函数进行求和变换的一个套路，代码敲起来也比较简单，感觉和筛搭不上什么关系……。</p>
+<p>min25筛才是名副其实的筛法的思想，然后形式上是一个 $dp$ 的转移方程，理解起来有挺大的难度，代码也不是很好写。</p>
+<p>推荐两个教程：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/heyuhhh/p/11421209.html">min25筛学习总结</a></p>
+<p><a target="_blank" rel="noopener" href="https://cmxrynp.github.io/2018/12/03/Min-25筛学习笔记/">Min_25筛学习笔记</a></p>
+<p>min25筛要记住两个重要的公式：</p>
+<hr>
+<script type="math/tex; mode=display">
+g(a, b) = 
+\begin{cases}
+ g(a, b - 1) &p_b^2>a\\
+ g(a, b - 1) - f(p_b)\cdot(g(\lfloor \frac{a}{p_b}\rfloor, b - 1) - g(p_{b-1}, \infty)) &p_b^2\le a
+\end{cases}</script><hr>
+<script type="math/tex; mode=display">
+S(a, b) = 
+\begin{cases}
+0 &a<p_b\\
+g(a, \infty) - g(p_{b-1}, \infty) + \sum_{i=b}^{p_i^2\le a}\sum_{t=1}^{p_i^{t+1}\le a}(f(p_i^t)\cdot S(\lfloor \frac{a}{p_i^t}\rfloor, i + 1) + f(p_i^{t+1})) &a\ge p_b
+\end{cases}</script><hr>
+<p>首先，很显然有 $f(ab) = f(a) + f(b)$ ，所以有：</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^{n}f(i!)\\
+\begin{align}
+&=\sum_{i=1}^{n}\sum_{j=1}^{i}f(j)    \tag{1}\\
+&=\sum_{i=1}^{n}(n-i+1)f(i)    \tag{2}\\
+&=(n+1)\sum_{i=1}^{n}f(i)-\sum_{i=1}^{n}i\cdot f(i) \tag{3}
+\end{align}</script><p>由 (1) 得到 (2) 只需要考虑每一个 $f(i)$ 的贡献即可，(2) 到 (3) 是简单的拆分。</p>
+<p>好了，接下来是重头戏。</p>
+<p>考虑 $\sum_{i=1}^{n}f(i)$ ，先说结论：</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^{n}f(i) = \sum_{i=1}^{n}isprime(i)\sum_{t=1}^{i^t\le n}\lfloor \frac{n}{i^t}\rfloor</script><p>证明：</p>
+<p>考虑到 $f$ 的定义,，若 $i = p_1^{k_1}p_2^{k_2}…p_m^{k_m}$ ，则 $f(i) = k_1 + k_2 + … + k_m$ ，意思就是，对于 $i$ 来说，若其被 $p_j$ 整除，则答案要加 $1$ ，被 $p_j^2$ 整除，再加 $1$ ，一直到 $p_j^{k_j} $ ，总共加了 $k_j$ 个 $1$，所以我们只需要对每一个质数及其次幂的贡献考虑，$[1, n]$ 的范围内有多少个数是该质数及其次幂的倍数。</p>
+<p>同理，$i\cdot f(i) = i \times (k_1 + k_2 + … + k_m)$ ，每有一个质数或其次幂整除 $i$ ，则该式要多加上一个 $i$ ，所以有：</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^{n}i\cdot f(i) \\
+\begin{align}
+&= \sum_{i = 1}^{n}isprime(i)\sum_{t = 1}^{i^t\le n}\sum_{i^t|d}d\\
+&= \sum_{i = 1}^{n}isprime(i)\sum_{t = 1}^{i^t\le n}i^t\sum_{j=1}^{\lfloor\frac{n}{i^t}\rfloor}j\\
+&= \sum_{i = 1}^{n}isprime(i)\sum_{t = 1}^{i^t\le n}i^t\cdot \frac{\lfloor\frac{n}{i^t}\rfloor\cdot(\lfloor\frac{n}{i^t}\rfloor + 1)}{2}
+\end{align}</script><hr>
+<p>公式推完之后，接下来考虑怎么计算。</p>
+<p>把质数分成两部分，一部分是小于等于 $\sqrt{n}$ 的，另一部分是大于 $\sqrt{n}$ 的，小于等于的一部分的贡献可以直接利用上面的式子暴力计算，但是，对于大于的那一部分，是不能直接求得，我们不可能把到 $1e10$ 的质数全部求出来，注意到，对于大于 $\sqrt{n}$ 的那一部分质数，公式里的 $t$ 只能等于 $1$ ，化简之后即为：</p>
+<script type="math/tex; mode=display">
+\sum f(i) = \sum1 = g1(n, \infty) - g1(\sqrt{n}, \infty)\\
+\sum i\cdot f(i) = \sum i = g2(n, \infty) - g2(\sqrt{n}, \infty)</script><p>其中 $g1(a, b)$  表示 $[1, a]$ 的数被第 $b$ 个质数筛过之后还剩下多少个数，$g2(a, b)$  表示 $[1, a]$ 的数被第 $b$ 个质数筛过之后剩下的数的和。</p>
+<p>这两个 $g$ 的求法是min25筛的拿手好戏。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"><span class="keyword">int</span> prime[maxn];</span><br><span class="line">ll a[maxn &lt;&lt; <span class="number">1</span>];</span><br><span class="line">ll g1[maxn &lt;&lt; <span class="number">1</span>];</span><br><span class="line">ll g2[maxn &lt;&lt; <span class="number">1</span>];</span><br><span class="line">ll f[maxn];</span><br><span class="line">ll inv2, n, sq;</span><br><span class="line"><span class="keyword">int</span> m, tot;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">eular</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  vis[<span class="number">0</span>] = vis[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">      prime[++tot] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * prime[j] &lt; maxn; j++) &#123;</span><br><span class="line">      vis[i * prime[j]] = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tot; i++) &#123;</span><br><span class="line">    f[i] = (f[i - <span class="number">1</span>] + prime[i]) % mod;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">(ll x)</span> </span>&#123; <span class="keyword">return</span> x &lt;= sq ? x : m - n / x + <span class="number">1</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  eular();</span><br><span class="line">  inv2 = (mod + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;n);</span><br><span class="line">  sq = <span class="built_in">sqrt</span>(n + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (ll l = <span class="number">1</span>, r; l &lt;= n; l = r + <span class="number">1</span>) &#123;</span><br><span class="line">    r = n / (n / l);</span><br><span class="line">    a[++m] = r;</span><br><span class="line">    g1[m] = (r - <span class="number">1</span>) % mod;</span><br><span class="line">    g2[m] = (r + <span class="number">2</span>) % mod * (r - <span class="number">1</span>) % mod * inv2 % mod;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tot &amp;&amp; prime[i] &lt;= sq; i++) &#123;</span><br><span class="line">    ll tmp = <span class="number">1l</span>l * prime[i] * prime[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = m; a[j] &gt;= tmp; j--) &#123;</span><br><span class="line">      g1[j] -= (g1[id(a[j] / prime[i])] - (i - <span class="number">1</span>)) % mod;</span><br><span class="line">      g2[j] -= prime[i] * (g2[id(a[j] / prime[i])] - f[i - <span class="number">1</span>]) % mod;</span><br><span class="line">      g1[j] %= mod;</span><br><span class="line">      g2[j] %= mod;</span><br><span class="line">      <span class="keyword">if</span> (g1[j] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        g1[j] += mod;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (g2[j] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        g2[j] += mod;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ll ans1 = <span class="number">0</span>;</span><br><span class="line">  ll ans2 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (ll l = <span class="number">1</span>, r; l &lt;= n; l = r + <span class="number">1</span>) &#123;</span><br><span class="line">    r = n / (n / l);</span><br><span class="line">    ll t1 = g1[id(r)] - g1[id(l - <span class="number">1</span>)];</span><br><span class="line">    ll t2 = g2[id(r)] - g2[id(l - <span class="number">1</span>)];</span><br><span class="line">    ans1 += (n / l) % mod * t1 % mod;</span><br><span class="line">    ans2 += (n / l) % mod * (n / l + <span class="number">1</span>) % mod * inv2 % mod * t2 % mod;</span><br><span class="line">    ans1 %= mod;</span><br><span class="line">    ans2 %= mod;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tot &amp;&amp; prime[i] &lt;= sq; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (ll tmp = <span class="number">1l</span>l * prime[i] * prime[i]; tmp &lt;= n; tmp *= prime[i]) &#123;</span><br><span class="line">      ans1 += n / tmp;</span><br><span class="line">      ans1 %= mod;</span><br><span class="line">      ans2 += (n / tmp) % mod * (n / tmp + <span class="number">1</span>) % mod * tmp % mod * inv2 % mod;</span><br><span class="line">      ans2 %= mod;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ans1 = (n + <span class="number">1</span>) % mod * ans1 % mod;</span><br><span class="line">  <span class="keyword">if</span> (ans1 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    ans1 += mod;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (ans2 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    ans2 += mod;</span><br><span class="line">  &#125;</span><br><span class="line">  ll ans = (ans1 - ans2 + mod) % mod;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">zzpw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://zzpw.github.io/2019/10/21/%E5%BE%90%E5%B7%9E%E7%BD%91%E7%BB%9C%E8%B5%9B-H/">http://zzpw.github.io/2019/10/21/%E5%BE%90%E5%B7%9E%E7%BD%91%E7%BB%9C%E8%B5%9B-H/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://zzpw.github.io" target="_blank">zzpw's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a><a class="post-meta__tags" href="/tags/min25%E7%AD%9B/">min25筛</a></div><div class="post_share"><div class="social-share" data-image="/img/zzpw.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/11/%E7%BB%93%E6%9D%9F%E4%B8%8E%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">结束与新的开始</div></div></a></div><div class="next-post pull-right"><a href="/2019/10/05/%E8%A5%BF%E5%AE%89%E9%82%80%E8%AF%B7%E8%B5%9B-B-Product/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">西安邀请赛 B Product</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2019/09/08/UVA-11426/" title="UVA 11426"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-08</div><div class="title">UVA 11426</div></div></a></div><div><a href="/2019/09/30/bzoj-2820/" title="bzoj 2820"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-30</div><div class="title">bzoj 2820</div></div></a></div><div><a href="/2019/10/05/西安邀请赛-B-Product/" title="西安邀请赛 B Product"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-05</div><div class="title">西安邀请赛 B Product</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/zzpw.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">zzpw</div><div class="author-info__description">每个人都在自己的生活轨迹里, 你没有落后, 你没有领先, 不必焦虑或优越!</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zzpw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zzpw" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zengpengwu@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://zhihu.com/people/ceng-peng-wu" target="_blank" title=""><i class="fab fa-zhihu"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#function"><span class="toc-number">1.</span> <span class="toc-text">function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="toc-number">3.1.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="toc-number">3.2.</span> <span class="toc-text">样例输出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-number">4.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">代码</span></a></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="时隔一年多"/></a><div class="content"><a class="title" href="/2020/12/22/%E6%97%B6%E9%9A%94%E4%B8%80%E5%B9%B4%E5%A4%9A/" title="时隔一年多">时隔一年多</a><time datetime="2020-12-22T13:26:18.000Z" title="发表于 2020-12-22 21:26:18">2020-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/03/23/%E5%85%AC%E7%BD%91%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91ecs%E4%B8%8A%E7%9A%84mongodb/" title="公网连接阿里云ecs上的mongodb">公网连接阿里云ecs上的mongodb</a><time datetime="2020-03-23T08:35:20.000Z" title="发表于 2020-03-23 16:35:20">2020-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/01/19/Chrome%E9%A1%B5%E9%9D%A2-%E5%96%94%E5%94%B7%E5%B4%A9%E6%BA%83%E4%BA%86-%E9%97%AE%E9%A2%98/" title="Chrome页面 喔唷崩溃了 问题">Chrome页面 喔唷崩溃了 问题</a><time datetime="2020-01-19T14:41:47.000Z" title="发表于 2020-01-19 22:41:47">2020-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2019/11/20/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E6%8B%9Frip%E5%8D%8F%E8%AE%AE/" title="java多线程模拟rip协议">java多线程模拟rip协议</a><time datetime="2019-11-20T02:51:59.000Z" title="发表于 2019-11-20 10:51:59">2019-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2019/11/11/%E7%BB%93%E6%9D%9F%E4%B8%8E%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/" title="结束与新的开始">结束与新的开始</a><time datetime="2019-11-11T08:48:22.000Z" title="发表于 2019-11-11 16:48:22">2019-11-11</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By zzpw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Welocome to zzpw's blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'dvBFzl6apeBQrxxFy0tLkaHI-gzGzoHsz',
+      appKey: 't8yipQInK9apLY7n2aEeQgBe',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div></body></html>
